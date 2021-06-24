@@ -1,15 +1,16 @@
 <template>
   <div class="about">
-   <h1>
+   <h1
+    :style="{'color': color}">
       Contador: {{contador}}
     </h1>
     <button @click="aumentar">+</button>
-    <button @click="disminuir">-</button>-->
+    <button @click="disminuir">-</button>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 export default {
   //se ejecuta antes que se cree el componente, una vez que los props se resuelven, y es el punto de entrada para las API de composición
   //this desaparece, acceso directo a todos los datos
@@ -26,7 +27,15 @@ export default {
     const disminuir = () => {
       contador.value --
     }
-    return {contador, aumentar, disminuir}
+
+    const color = computed(() => {
+      if(contador.value < 0){
+        return 'red';
+      }else{
+        return 'blue';
+      }
+    })
+    return {contador, aumentar, disminuir, color}
   },
 }
 </script>

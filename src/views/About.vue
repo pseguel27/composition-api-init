@@ -6,6 +6,9 @@
     </h1>
     <button @click="aumentar">+</button>
     <button @click="disminuir">-</button>
+    <hr>
+    <input type="text" v-model="texto">
+    <p>{{ texto }}</p>
   </div>
 </template>
 
@@ -35,7 +38,7 @@ export default {
         return 'blue';
       }
     })
-    return {contador, aumentar, disminuir, color}
+    return {contador, aumentar, disminuir, color, texto}
   },
 }
 </script>

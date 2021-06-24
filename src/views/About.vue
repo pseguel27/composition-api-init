@@ -1,9 +1,10 @@
 <template>
   <div class="about">
-   <h1
-    :style="{'color': color}">
-      Contador: {{contador}}
-    </h1>
+    <Titulo :contador="contador" :color="color" />
+    <!--<h1
+      :style="{'color': color}">
+        Contador: {{contador}}
+    </h1>-->
     <button @click="aumentar">+</button>
     <button @click="disminuir">-</button>
     <hr>
@@ -13,8 +14,12 @@
 </template>
 
 <script>
+import Titulo from '../components/Titulo'
 import { computed, ref } from 'vue'
 export default {
+  components: {
+    Titulo
+  },
   //se ejecuta antes que se cree el componente, una vez que los props se resuelven, y es el punto de entrada para las API de composición
   //this desaparece, acceso directo a todos los datos
   setup() {

@@ -26,15 +26,7 @@ export default {
     const disminuir = () => {
       contador.value --
     }
-
-    const color = computed(() => {
-      if(contador.value < 0){
-        return 'red'
-      }else{
-        return 'blue'
-      }
-    })
-    return {contador, aumentar, disminuir, color, texto}
+    return {contador, aumentar, disminuir}
   },
 }
 </script>

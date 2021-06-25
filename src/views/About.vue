@@ -5,20 +5,24 @@
       :style="{'color': color}">
         Contador: {{contador}}
     </h1>-->
-    <button @click="aumentar">+</button>
-    <button @click="disminuir">-</button>
+    <!--<button @click="aumentar">+</button>
+    <button @click="disminuir">-</button>-->
     <hr>
     <input type="text" v-model="texto">
     <p>{{ texto }}</p>
+    <Btn :textoBoton="'Aumentar'" @accion="aumentar" />
+    <Btn :textoBoton="'Disminuir'" @accion="disminuir" />
   </div>
 </template>
 
 <script>
 import Titulo from '../components/Titulo'
+import Btn from '../components/Btn'
 import { computed, ref } from 'vue'
 export default {
   components: {
-    Titulo
+    Titulo,
+    Btn
   },
   //se ejecuta antes que se cree el componente, una vez que los props se resuelven, y es el punto de entrada para las API de composición
   //this desaparece, acceso directo a todos los datos
